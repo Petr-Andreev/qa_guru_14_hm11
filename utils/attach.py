@@ -21,8 +21,8 @@ def add_html(browser):
 
 
 # Добавление видео к отчету
-def add_video(browser, selenoid_url):
-    video_url = f"{selenoid_url}/video/" + browser.driver.session_id + ".mp4"
+def add_video(browser):
+    video_url = f"https://user1:1234@selenoid.autotests.cloud/wd/hub/video/" + browser.driver.session_id + ".mp4"
     html = "<html><body><video width='100%' height='100%' controls autoplay><source src='" \
            + video_url \
            + "' type='video/mp4'></video></body></html>"

@@ -45,7 +45,7 @@ def browser_management():
         attach.add_html(browser)
 
     with allure.step('Добавляем видео к отчету'):
-        attach.add_video(browser, selenoid_url='https://user1:1234@selenoid.autotests.cloud/wd/hub')
+        attach.add_video(browser)
 
     with allure.step('Закрываем браузер'):
         browser.quit()
