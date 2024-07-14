@@ -80,9 +80,9 @@ class PracticeFormPage:
 
     @allure.step('Сверяем введенные данные')
     def should_registered_user_data(self, fio, email,
-                             gender, phone, birthday, subjects,
-                             hobbies, photo, street,
-                             state_and_city):
+                                    gender, phone, birthday, subjects,
+                                    hobbies, photo, street,
+                                    state_and_city):
         browser.element('.table').all('td').even.should(have.exact_texts(
             f'{fio}',
             f'{email}',
