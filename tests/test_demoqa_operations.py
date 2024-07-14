@@ -1,6 +1,9 @@
+import allure
+
 from demoqa_tests.pages.registration_page import PracticeFormPage
 
 
+@allure.title('Successful fill form')
 def test_complete_demoqa():
     registration_form = PracticeFormPage()
     registration_form.open()
@@ -24,7 +27,7 @@ def test_complete_demoqa():
     # THEN
     registration_form.successful_authentication('Thanks for submitting the form')
 
-    registration_form.registered_user_data(
+    registration_form.should_registered_user_data(
         'Petr Andreev',
         'for_example@gmail.com',
         'Male',
