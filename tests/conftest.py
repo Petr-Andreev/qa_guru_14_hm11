@@ -3,6 +3,7 @@ import pytest
 from selenium import webdriver
 from selene import browser
 from selenium.webdriver.chrome.options import Options
+from utils import attach
 
 
 @pytest.fixture(scope='function', autouse=True)
@@ -33,5 +34,17 @@ def browser_management():
         browser.config.driver = driver
 
     yield
-    with allure.step(f'Закрываем браузер'):
+    with allure.step('Создаём скриншот по завершению теста'):
+        attach.add_screenshot(browser)
+
+    with allure.step('Добавляем логи по завершению теста'):
+        attach.add_logs(browser)
+
+    with allure.step('Создаём скриншот по завершению теста'):
+        attach.add_html(browser)
+
+    with allure.step('Добавляем видео к отчету'):
+        attach.add_video(browser, selenoid_url='https://user1:1234@selenoid.autotests.cloud/wd/hub')
+
+    with allure.step('Закрываем браузер'):
         browser.quit()
