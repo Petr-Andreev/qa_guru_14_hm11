@@ -17,7 +17,6 @@ def browser_management():
         options.page_load_strategy = 'eager'
         #options.add_argument("--headless")
 
-        options = Options()
         selenoid_capabilities = {
             "browserName": "chrome",
             "browserVersion": "121.0",
